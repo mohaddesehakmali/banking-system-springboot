@@ -1,8 +1,10 @@
 package com.bank.bankingsystemspringboot.controller;
 
-import com.bank.bankingsystemspringboot.dto.AccountRequest;
-import com.bank.bankingsystemspringboot.entity.Account;
+import com.bank.bankingsystemspringboot.dto.*;
 import com.bank.bankingsystemspringboot.service.AccountService;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,26 +12,39 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/accounts")
 public class AccountController {
+    private final AccountService service;
 
-    private final AccountService accountService;
-
-    public AccountController(AccountService accountService) {
-        this.accountService = accountService;
+    public AccountController(AccountService service) {
+        this.service = service;
     }
 
     @PostMapping
-    public Account createAccount(@RequestBody AccountRequest request) {
-        return accountService.createAccount(request);
+    public ResponseEntity<AccountResponse> createAccount(@Valid @RequestBody AccountRequest request) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.createAccount(request));
     }
 
     @GetMapping
-    public List<Account> getAllAccounts() {
-        return accountService.getAllAccounts();
+    public List<AccountResponse> getAllAccounts() {
+        return service.getAllAccounts();
     }
 
     @GetMapping("/{id}")
-    public Account getAccountById(@PathVariable Long id) {
-        return accountService.getAccountById(id);
+    public AccountResponse getAccountById(@PathVariable Long id) {
+        return service.getAccountById(id);
+    }
+
+    @PostMapping("/{id}/deposit")
+    public AccountResponse deposit(@PathVariable Long id, @Valid @RequestBody MoneyRequest request) {
+        return service.deposit(id, request.amount());
+    }
+
+    @PostMapping("/{id}/withdraw")
+    public AccountResponse withdraw(@PathVariable Long id, @Valid @RequestBody MoneyRequest request) {
+        return service.withdraw(id, request.amount());
+    }
+
+    @PostMapping("/transfer")
+    public TransferResponse transfer(@Valid @RequestBody TransferRequest request) {
+        return service.transfer(request);
     }
 }
-
