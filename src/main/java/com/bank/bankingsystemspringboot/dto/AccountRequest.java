@@ -1,35 +1,13 @@
 package com.bank.bankingsystemspringboot.dto;
 
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.Digits;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
-public class AccountRequest {
-
-    private String ownerName;
-    private String accountNumber;
-    private BigDecimal initialBalance;
-
-
-    public String getOwnerName() {
-        return ownerName;
-    }
-
-    public String getAccountNumber() {
-        return accountNumber;
-    }
-
-    public BigDecimal getInitialBalance() {
-        return initialBalance;
-    }
-
-    public void setOwnerName(String ownerName) {
-        this.ownerName = ownerName;
-    }
-
-    public void setAccountNumber(String accountNumber) {
-        this.accountNumber = accountNumber;
-    }
-
-    public void setInitialBalance(BigDecimal initialBalance) {
-        this.initialBalance = initialBalance;
-    }
-}
+public record AccountRequest(
+    @NotBlank String ownerName,
+    @NotBlank String accountNumber,
+    @NotNull @DecimalMin("0.00") @Digits(integer = 17, fraction = 2) BigDecimal initialBalance
+) { }
