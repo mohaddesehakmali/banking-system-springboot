@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="420" viewBox="0 0 1100 420" role="img" aria-label="Banking REST API architecture overview">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0F1C2D"/><stop offset="1" stop-color="#1B3044"/></linearGradient>
+</defs>
+<rect width="1100" height="420" rx="28" fill="url(#bg)"/>
+<rect x="0" y="0" width="14" height="420" fill="#27847B"/>
+<text x="58" y="78" fill="#8EA9BB" font-size="23" font-family="Arial,Helvetica,sans-serif" letter-spacing="3">PROJECT OVERVIEW</text>
+<text x="58" y="148" fill="#FFFFFF" font-size="54" font-weight="700" font-family="Arial,Helvetica,sans-serif">Banking REST API</text>
+<text x="60" y="195" fill="#B6C8D4" font-size="25" font-family="Arial,Helvetica,sans-serif">Spring Boot account management</text>
+<rect x="58" y="254" width="310" height="103" rx="13" fill="#26394D" stroke="#4E6679" stroke-width="1.5"/><rect x="58" y="254" width="310" height="7" rx="3" fill="#27847B"/><text x="80" y="315" fill="#EEF6FC" font-size="23" font-family="Arial,Helvetica,sans-serif">REST controller</text><path d="M 374 304 h29 l-8 -8 m8 8 l-8 8" fill="none" stroke="#9FB5C5" stroke-width="2"/><rect x="413" y="254" width="310" height="103" rx="13" fill="#26394D" stroke="#4E6679" stroke-width="1.5"/><rect x="413" y="254" width="310" height="7" rx="3" fill="#27847B"/><text x="435" y="315" fill="#EEF6FC" font-size="23" font-family="Arial,Helvetica,sans-serif">Business rules</text><path d="M 729 304 h29 l-8 -8 m8 8 l-8 8" fill="none" stroke="#9FB5C5" stroke-width="2"/><rect x="768" y="254" width="310" height="103" rx="13" fill="#26394D" stroke="#4E6679" stroke-width="1.5"/><rect x="768" y="254" width="310" height="7" rx="3" fill="#27847B"/><text x="790" y="315" fill="#EEF6FC" font-size="23" font-family="Arial,Helvetica,sans-serif">H2 database</text>
+<text x="58" y="392" fill="#8196A6" font-size="16" font-family="Arial,Helvetica,sans-serif">Documentation and architecture illustration — project-specific, no external assets</text>
+</svg>
